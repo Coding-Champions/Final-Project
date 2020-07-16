@@ -1,0 +1,42 @@
+html {
+    background: url(https://wallpaperaccess.com/full/235860.jpg) no-repeat center fixed;
+    /* background: #333; */
+
+    
+}
+.container{
+    text-align: center;
+    margin-top: 250px;
+}
+.navbar{
+    background: none;
+    
+}
+.footer{
+
+    background: none;
+    
+}
+.button, .button .is-success{
+    background-color: rgb(3, 185, 28);
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+     
+}
+.label{
+    color: white;
+    text-shadow: 1px 1px #333;
+    
+}
+.input{
+    
+    width: 60%;
+}
+#registerbtn{
+    text-align: center;
+
+}
+#loginbtn{
+    text-align: center;
+}
