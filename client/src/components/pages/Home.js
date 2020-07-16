@@ -1,16 +1,14 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
- const Home = () =>{
-    return (
-        <>
-        <Link to="/login">
-            <li className="nav-item nav-link">Login</li>
-        </Link>
-        <Link to="/register">
-            <li className="nav-item nav-link">Register</li>
-        </Link>
-        </>
-) 
- }   
+import React from "react";
 
+class Home extends React.Component {
+    
+    render(){
+        return(
+            <div>
+            <button className="button">Login</button>
+            <button className="button">Register</button>
+            </div>
+        )
+    }
+}
 export default Home;
