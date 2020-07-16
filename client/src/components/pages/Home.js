@@ -1,14 +1,16 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
-class Home extends React.Component {
-    
-    render(){
-        return(
-            <div>
-            <button className="button">Login</button>
-            <button className="button">Register</button>
-            </div>
-        )
-    }
-}
+const Home = () =>{
+    return (
+        <>
+        <Link to="/login">
+        <button className="button">Login</button>
+        </Link>
+        <Link to="/register">
+        <button className="button">Register</button>
+        </Link>
+        </>
+    )
+ }
 export default Home;
