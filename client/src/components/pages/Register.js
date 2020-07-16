@@ -3,29 +3,24 @@ import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
 export const Register = () => {
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password2: ''
-  })
-  const { name, email, password, password2 } = user
+  
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
-  const handleChange = e => {
-    setUser({ ...user, [e.target.name]: e.target.value }) //set the value of the variable that user happens to change to be the value in the input field
-  }
 
   const submit = e => {
     e.preventDefault()
-    if (password !== password2) {
+    if (password !== confirmPassword) {
       console.log('passwords do not match')
     } else {
       Axios({
         method: 'POST',
         data: {
-          name: user.name,
-          password: user.password,
-          email: user.email
+          name: name,
+          password: password,
+          email: email
         },
         withCredentials: true,
         url: 'http://localhost:5000/register'
@@ -42,7 +37,7 @@ export const Register = () => {
             type='text'
             placeholder='Name'
             value={name}
-            onChange={handleChange}
+            onChange={(e) => setName(e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-envelope' />
@@ -59,7 +54,7 @@ export const Register = () => {
             type='email'
             placeholder='Email'
             value={email}
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-envelope' />
@@ -76,7 +71,7 @@ export const Register = () => {
             type='password'
             placeholder='Password'
             value={password}
-            onChange={handleChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-lock' />
@@ -89,8 +84,8 @@ export const Register = () => {
             className='input'
             type='password'
             placeholder='Confirm Password'
-            value={password2}
-            onChange={handleChange}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-lock' />
@@ -104,7 +99,7 @@ export const Register = () => {
       </div>
       <div className='field'>
         <p className='control'>
-          <button className='button is-success'>Register</button>
+          <button className='button is-success'onClick={submit}>Register</button>
         </p>
       </div>
     </div>

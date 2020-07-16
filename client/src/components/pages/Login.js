@@ -3,20 +3,17 @@ import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
 export const Login = () => {
-  const [user, setUser] = useState({ email: '', password: '' })
-  const { email, password } = user
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-  const handleChange = e => {
-    setUser({ ...user, [e.target.name]: e.target.value }) //set the value of the variable that user happens to change to be the value in the input field
-  }
 
   const submit = e => {
     e.preventDefault()
     Axios({
       method: 'POST',
       data: {
-        email: user.email,
-        password: user.password
+        email: email,
+        password: password
       },
       withCredentials: true,
       url: 'http://localhost:5000/auth'
@@ -32,7 +29,7 @@ export const Login = () => {
             type='email'
             placeholder='Email'
             value={email}
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-envelope' />
@@ -49,7 +46,7 @@ export const Login = () => {
             type='password'
             placeholder='Password'
             value={password}
-            onChange={handleChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-lock' />
