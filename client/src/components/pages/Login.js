@@ -1,23 +1,34 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Axios from 'axios'
+import React, {useState} from 'react';
+import { Link, useHistory } from 'react-router-dom';
+
+import Axios from 'axios';
+
 
 export const Login = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const history = useHistory();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
 
-  const submit = e => {
-    e.preventDefault()
-    Axios({
-      method: 'POST',
-      data: {
-        email: email,
-        password: password
-      },
-      withCredentials: true,
-      url: 'http://localhost:5000/auth'
-    }).then(res => console.log(res))
+    const submit = e =>{
+      e.preventDefault();
+      Axios({
+          method: "POST",
+          data: {
+            "email": email,
+            "password": password,
+          },
+          url: "http://localhost:5000/users/login",
+        }).then(res=>{
+              //Note that this webtoken needs to be set in the browser before going over to the profile page.
+              if (res){
+                  localStorage.setItem('usertoken', res.data);
+                  history.push('./profile');
+              }
+        })
+      .catch(err=>{
+          console.log(err);
+      })
   }
 
   return (

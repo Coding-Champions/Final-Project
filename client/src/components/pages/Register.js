@@ -1,31 +1,28 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Axios from 'axios'
 
 export const Register = () => {
-  
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
+  const history = useHistory();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
 
   const submit = e => {
-    e.preventDefault()
-    if (password !== confirmPassword) {
-      console.log('passwords do not match')
-    } else {
+    e.preventDefault();
       Axios({
         method: 'POST',
         data: {
-          name: name,
-          password: password,
-          email: email
+          "name": name,
+          "password": password,
+          "email": email
         },
-        withCredentials: true,
-        url: 'http://localhost:5000/register'
-      }).then(res => console.log(res))
-    }
+        url: 'http://localhost:5000/users/register'
+      }).then(res => {
+        console.log(res);
+        history.push('./login');
+      })
   }
 
   return (
@@ -36,8 +33,7 @@ export const Register = () => {
             className='input'
             type='text'
             placeholder='Name'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={e=> setName(e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-envelope' />
@@ -53,8 +49,8 @@ export const Register = () => {
             className='input'
             type='email'
             placeholder='Email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+           
+            onChange={e=> setEmail(e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-envelope' />
@@ -70,22 +66,8 @@ export const Register = () => {
             className='input'
             type='password'
             placeholder='Password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <span className='icon is-small is-left'>
-            <i className='fas fa-lock' />
-          </span>
-        </p>
-      </div>
-      <div className='field'>
-        <p className='control has-icons-left'>
-          <input
-            className='input'
-            type='password'
-            placeholder='Confirm Password'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+           
+            onChange={e=> setPassword( e.target.value)}
           />
           <span className='icon is-small is-left'>
             <i className='fas fa-lock' />
@@ -105,5 +87,20 @@ export const Register = () => {
     </div>
   )
 }
-
+/*
+<div className='field'>
+        <p className='control has-icons-left'>
+          <input
+            className='input'
+            type='password'
+            placeholder='Confirm Password'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <span className='icon is-small is-left'>
+            <i className='fas fa-lock' />
+          </span>
+        </p>
+      </div>
+*/
 export default Register

@@ -17,9 +17,10 @@ connectDB();
 
 app.use(express.json({extended:true}));
 
-app.use('/register', require('./routes/register'));  //If someone does a register route, then go in that file.
-app.use('/auth', require('./routes/auth'));
+//app.use('/register', require('./routes/register'));  //If someone does a register route, then go in that file.
+//app.use('/auth', require('./routes/auth'));
 //app.use('/guests', require('./routes/guests'));
+app.use('/users', require('./routes/users'));
 app.listen(PORT, ()=>{
     console.log(`Server started at port ${PORT}`);
 })

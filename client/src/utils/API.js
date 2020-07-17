@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const MOVIES = "http://www.omdbapi.com/?apikey=a0bbf946&s=";
-
+const BASEURL = "http://www.omdbapi.com/?t=";
+const APIKEY = "&apikey=trilogy";
 
 export default {
-  search: function() {
-    return axios.get(MOVIES);
+  search: function(query) {
+    return axios.get(BASEURL + query + APIKEY);
   }
 };
 
