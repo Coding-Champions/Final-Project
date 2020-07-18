@@ -20,6 +20,8 @@ export const Profile = () => {
    
     return ( 
         <>
+        
+        <button className="button" type="submit">Logout</button>
         <h1 style={{color: "white"}}>Hello {username} !!!</h1>
         
         <Link to="/AddMovies">
