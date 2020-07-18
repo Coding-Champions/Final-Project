@@ -33,6 +33,11 @@ export const AddMovies = () => {
     
   return (
     <div>
+      <Link to="/Profile">
+            <button className="button">Back to Profile</button>
+        </Link>
+              <button className="button" type="submit">Add Movie</button>
+
       <div className='field'>
         <p className='control has-icons-left has-icons-right'>
           <input
