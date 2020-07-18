@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import API from "../../utils/API";
 import Axios from 'axios';
@@ -9,23 +9,28 @@ export const AddMovies = () => {
     const history = useHistory();
     const [movieName, setMovieName] = useState('');
     const [movieData, setMovie] = useState({});
+    console.log(movieName);
     //const [password, setPassword] = useState("");*/
     //console.log(movieName);
     const searchMovies = query =>{
         API.search(query)
         .then((res)=>{  //Why the heck does it lag behind one???
-            setMovie({movieData:res.data});
-            console.log(movieData);
+            setMovie(res.data);
+            //console.log(movieData);
             //console.log(movieName);
         });
     }
+
+    useEffect(()=>{
+      console.log(movieData);
+    }, [movieData]);
     //Idea now: searchMovie will be updated and then moviedata is called when the search button is hit.  
     //Now there should not need to be a useeffect function in here.
     const submit = e =>{
         e.preventDefault();
         searchMovies(movieName);
     }
-    //Once the problem above is fixed, work on a botton to add to the user's data base.
+    
   return (
     <div>
       <div className='field'>
