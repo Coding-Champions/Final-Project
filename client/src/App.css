@@ -1,8 +1,9 @@
 html {
-    background: url(https://wallpaperaccess.com/full/235860.jpg) no-repeat center fixed;
-    /* background: #333; */
-
     
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,1)), url("https://wallpaperaccess.com/full/235860.jpg") ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 .container{
     text-align: center;
