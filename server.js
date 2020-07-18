@@ -23,6 +23,7 @@ app.use(express.json())
 //app.use('/auth', require('./routes/auth'));
 //app.use('/guests', require('./routes/guests'));
 app.use('/users', require('./routes/users'));
+app.use('/movies', require('./routes/movies'));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"))
