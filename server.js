@@ -1,4 +1,5 @@
 const express = require('express');
+const router = require('express').Router;
 const app = express();
 const cors = require("cors");
 
@@ -15,12 +16,17 @@ app.use(
 //connect to database
 connectDB();
 
-app.use(express.json({extended:true}));
+app.use(express.urlencoded({extended:true}));
+app.use(express.json())
 
 //app.use('/register', require('./routes/register'));  //If someone does a register route, then go in that file.
 //app.use('/auth', require('./routes/auth'));
 //app.use('/guests', require('./routes/guests'));
 app.use('/users', require('./routes/users'));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"))
+}
 app.listen(PORT, ()=>{
     console.log(`Server started at port ${PORT}`);
 })
