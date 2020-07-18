@@ -8,7 +8,7 @@ const User = require('../models/User');
 users.use(cors());
 
 process.env.SECRET_KEY = 'secret';
-
+// /users/register
 users.post('/register', (req, res)=>{
     const userData = {
         name: req.body.name,
@@ -38,7 +38,7 @@ users.post('/register', (req, res)=>{
         res.send('error: ' + err);
     })
 });
-
+// /users/login
 users.post('/login', (req, res)=>{
     User.findOne({
         email: req.body.email

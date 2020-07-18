@@ -18,7 +18,7 @@ export const Login = () => {
             "email": email,
             "password": password,
           },
-          url: "http://localhost:5000/users/login",
+          url: "/users/login",
         }).then(res=>{
               //Note that this webtoken needs to be set in the browser before going over to the profile page.
               if (res){

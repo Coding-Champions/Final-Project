@@ -1,5 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+mongodb+srv://codingchamps:<password>@sceneit.ccddc.mongodb.net/<dbname>?retryWrites=true&w=majority
 ## Available Scripts
 
 In the project directory, you can run:

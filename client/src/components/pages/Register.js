@@ -18,11 +18,13 @@ export const Register = () => {
           "password": password,
           "email": email
         },
-        url: 'http://localhost:5000/users/register'
+        url: '/users/register'
       }).then(res => {
         console.log(res);
         history.push('./login');
-      })
+      }).catch(err => {
+        console.log(err)
+      });
   }
 
   return (
