@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import Axios from 'axios';
+import Navbar from "../Navbar"
 
 export const Profile = () => {
     const history = useHistory();
@@ -41,6 +42,7 @@ export const Profile = () => {
     //getListOfMovs();
     return ( 
         <>
+        <Navbar/>
         
         <button className="button" type="submit">Logout</button>
         <h1 style={{color: "white"}}>Hello {username} !!!</h1>
@@ -56,8 +58,11 @@ export const Profile = () => {
         </>
     )
 }
-{/* <h3>Title: {movieData.Title}</h3> 
-        <h3>Genre: {movieData.Genre}</h3> 
-        <h3>Poster: {movieData.Poster}</h3> 
-        <h3>imdbRating: {movieData.imdbRating}</h3> */}
 export default Profile;
+
+//Maybe used later
+
+// {/* <h3>Title: {movieData.Title}</h3> 
+//         <h3>Genre: {movieData.Genre}</h3> 
+//         <h3>Poster: {movieData.Poster}</h3> 
+//         <h3>imdbRating: {movieData.imdbRating}</h3> */}
