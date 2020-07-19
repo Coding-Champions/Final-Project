@@ -19,11 +19,16 @@ html {
     
 }
 .button, .button .is-success{
+    
     background-color: rgb(3, 185, 28);
     color: white;
     font-weight: bold;
     margin: 5px;
      
+}
+.button:hover{
+    color: white;
+    background-color: rgb(3, 155, 23);
 }
 .label{
     color: white;
@@ -44,4 +49,10 @@ html {
 p{
     color: white;
     
+}
+a{
+font-weight: bold;
+}
+a:hover{
+  color: rgb(204, 204, 204);  
 }
