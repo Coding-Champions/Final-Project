@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 import API from "../../utils/API";
 import Axios from 'axios';
 
@@ -25,7 +26,24 @@ export const AddMovies = () => {
         searchMovies(movieName);
     } 
     const submitToDB = e=>{
-      console.log("clicked on submit button")
+      if(!localStorage.usertoken){
+        history.push('./login');
+      }else {
+        const token = localStorage.usertoken;
+        const decoded = jwt_decode(token)
+        //console.log(decoded);
+        Axios({
+          method: "POST",
+          data: {
+            "email": decoded.email,
+            "movieData": movieData,
+          },
+          url: "/users/addmovie",
+        }).then(res=>{ 
+          console.log(res); //res contains the message movie's been added.
+          alert("Movie has been added");
+        })
+      }
     }
   return (
     <div>

@@ -83,6 +83,27 @@ users.get('/profile', (req, res)=>{
     .catch(err =>{
         res.send('error' + err);
     })
+});
+
+users.post('/addmovie', (req, res)=>{
+    User.update({"email": req.body.email}, {$push:{"showList": req.body.movieData}}).then(response=>{
+        console.log("Movie is added");  //This shows the modified information from the database.
+        res.json("Movie has been added");
+    })
+    .catch(err => {
+        res.json("server error");
+    })
+});
+//does not work if it is a get request?!?!?
+users.get('/getmovies', (req, res)=>{
+    console.log("hitting the getmovies route")
+    console.log(req.body)
+    console.log(req.body.email);
+    User.findOne({
+        email: req.body.email
+    }).then(res=>{
+        console.log(res);
+    })
 })
 
 module.exports = users;
