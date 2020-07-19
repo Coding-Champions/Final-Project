@@ -66,7 +66,7 @@ users.post('/login', (req, res)=>{
     })
 });
 
-users.get('/profile', (req, res)=>{
+/* users.get('/profile', (req, res)=>{
     var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY);
     //SUCCESS!!!!  So if token was provided then we can log it!
     console.log(decoded);
@@ -83,7 +83,7 @@ users.get('/profile', (req, res)=>{
     .catch(err =>{
         res.send('error' + err);
     })
-});
+}); */
 
 users.post('/addmovie', (req, res)=>{
     User.update({"email": req.body.email}, {$push:{"showList": req.body.movieData}}).then(response=>{
@@ -95,15 +95,16 @@ users.post('/addmovie', (req, res)=>{
     })
 });
 //does not work if it is a get request?!?!?
-users.get('/getmovies', (req, res)=>{
+users.post('/getmovies', (req, res)=>{
     console.log("hitting the getmovies route")
     console.log(req.body)
     console.log(req.body.email);
     User.findOne({
         email: req.body.email
-    }).then(res=>{
-        console.log(res);
-    })
+    }).then(user=>{
+        res.json(user);
+    });
 })
+
 
 module.exports = users;
