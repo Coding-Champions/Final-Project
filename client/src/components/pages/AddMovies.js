@@ -8,35 +8,31 @@ export const AddMovies = () => {
     
     const history = useHistory();
     const [movieName, setMovieName] = useState('');
-    const [movieData, setMovie] = useState({});
-    console.log(movieName);
-    //const [password, setPassword] = useState("");*/
-    //console.log(movieName);
+    const [movieData, setMovie] = useState(null);
+    //console.log(movieData);
     const searchMovies = query =>{
         API.search(query)
         .then((res)=>{  //Why the heck does it lag behind one???
             setMovie(res.data);
-            //console.log(movieData);
-            //console.log(movieName);
         });
     }
 
     useEffect(()=>{
       console.log(movieData);
     }, [movieData]);
-    //Idea now: searchMovie will be updated and then moviedata is called when the search button is hit.  
-    //Now there should not need to be a useeffect function in here.
     const submit = e =>{
         e.preventDefault();
         searchMovies(movieName);
+    } 
+    const submitToDB = e=>{
+      console.log("clicked on submit button")
     }
-    
   return (
     <div>
       <Link to="/Profile">
             <button className="button">Back to Profile</button>
         </Link>
-              <button className="button" type="submit">Add Movie</button>
+              <button className="button" type="submit" onClick = {submitToDB}>Add Movie</button>
 
       <div className='field'>
         <p className='control has-icons-left has-icons-right'>
@@ -61,8 +57,37 @@ export const AddMovies = () => {
           </button>
         </p>
       </div>
+      <div className="movie-details">
+      {movieData === null ? <h3>No movie to display</h3> : <><h3>Title: {movieData.Title}</h3> 
+      <h3>Genre: {movieData.Genre}</h3> 
+      <h3>Poster: {movieData.Poster}</h3> 
+      <h3>imdbRating: {movieData.imdbRating}</h3></>}
+      </div>
     </div>
   )
 }
+
+/*
+<div className="text-center">
+      <img alt={props.title} className="img-fluid" src={props.src} style={{ margin: "0 auto" }} />
+      <h3>Director(s): {props.director}</h3>
+      <h3>Genre: {props.genre}</h3>
+      <h3>Released: {props.released}</h3>
+    </div>
+
+    heading={this.state.result.Title || "Search for a Movie to Begin"}
+            >
+              {this.state.result.Title ? (
+                <MovieDetail
+                  title={this.state.result.Title}
+                  src={this.state.result.Poster}
+                  director={this.state.result.Director}
+                  genre={this.state.result.Genre}
+                  released={this.state.result.Released}
+                />
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+*/
 
 export default AddMovies;
