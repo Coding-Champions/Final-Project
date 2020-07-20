@@ -10,7 +10,7 @@ export const Profile = () => {
     const [username, setName] = useState('');
     const [showList, setshowList] = useState(null);
     const [friendsList, setfriendList] = useState(null);
-    console.log(showList);
+    console.log(friendsList);
 
     useEffect(()=>{
         
@@ -30,7 +30,7 @@ export const Profile = () => {
             method: "GET",
             url: '/users/getfriends'
         }).then(res=>{
-            console.log(res.data);  //the data in the response is the message from the back end.
+            setfriendList(res.data);  //the data in the response is the message from the back end.
         })
     }
     //use state running twice.
@@ -62,9 +62,18 @@ export const Profile = () => {
             <button className="button">Click Here to Add movies to your collections!</button>
         </Link>
         <div className="movie-details">
+            <h1>Shows:</h1>
         {showList ? showList.map(movie=>
             <li>{movie.Title}</li>
         ) : <li>No movies here</li>}
+      </div>
+      <div className="movie-list">
+          <h1>Shows:</h1>
+        {friendsList ? friendsList.map(friend=>
+            
+              <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
+            
+        ) : <li>No friends here</li>}
       </div>
         </>
     )
