@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     
     background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,1)), url("https://wallpaperaccess.com/full/235860.jpg") ;
@@ -10,8 +16,7 @@ html {
     margin-top: 250px;
 }
 .navbar{
-    background: none;
-    
+    background: aqua;
 }
 .footer{
 
@@ -56,3 +61,12 @@ font-weight: bold;
 a:hover{
   color: rgb(204, 204, 204);  
 }
+
+.card {
+
+    background: rgba(198, 199, 198, 0.4);
+}
+/* .card-header-title {
+    background-color: azure;
+    color: #eeeeee;
+} */

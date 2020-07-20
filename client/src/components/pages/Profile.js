@@ -8,7 +8,7 @@ export const Profile = () => {
     const history = useHistory();
     const [username, setName] = useState('');
     const [showList, setshowList] = useState(null);
-    console.log(showList);
+    // console.log(showList);
 
     useEffect(()=>{
         //hmm maybe run a get requse here?  In useEffect if it runs after setstate?
@@ -42,19 +42,20 @@ export const Profile = () => {
     //getListOfMovs();
     return ( 
         <>
-        <Navbar/>
-        
-        <button className="button" type="submit">Logout</button>
-        <h1 style={{color: "white"}}>Hello {username} !!!</h1>
-        
-        <Link to="/AddMovies">
-            <button className="button">Click Here to Add movies to your collections!</button>
-        </Link>
-        <div className="movie-details">
-        {showList ? showList.map(movie=>
-            <li>{movie.Title}</li>
-        ) : <>No  movies here</>}
-      </div>
+            <div className="profile-container">
+                <Navbar/>
+                
+                <h1 style={{color: "white"}}>Hello {username} !!!</h1>
+                
+                <Link to="/AddMovies">
+                    <button className="button is-primary">Click Here to Add movies to your collections!</button>
+                </Link>
+                <div className="movie-details">
+                    {showList ? showList.map(movie=>
+                        <li>{movie.Title}</li>
+                    ) : <>No  movies here</>}
+                </div>
+            </div>
         </>
     )
 }
