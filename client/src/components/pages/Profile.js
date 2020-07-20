@@ -55,21 +55,29 @@ export const Profile = () => {
     }
     return ( 
         <>
-            <div className="profile-container">
-                <Navbar/>
-                
-                <h1 style={{color: "white"}}>Hello {username} !!!</h1>
-                
-                <Link to="/AddMovies">
-                    <button className="button is-primary">Click Here to Add movies to your collections!</button>
-                </Link>
-                <div className="movie-details">
-                    {showList ? showList.map(movie=>
-                        <>
-                        <li className="user-movie-title">{movie.Title}</li>
-                        <li><img src={movie.Poster}/></li>
-                        </>
-                    ) : <>No  movies here</>}
+                    <Navbar/>
+            <div className="columns is-centered">
+                <div className="profile-container">
+                    <div className="box">
+
+                    <h1 style={{color: "white"}}>Hello {username} !!!</h1>
+                    </div>
+                    <Link to="/AddMovies">
+                        <button className="button is-primary">Click Here to Add movies to your collections!</button>
+                    </Link>
+                    <div className="box">
+
+                    
+                    <div className="movie-details">
+                        {showList ? showList.map(movie=>
+                            <>
+                            <li className="user-movie-title">{movie.Title}</li>
+                            <li><img src={movie.Poster}/></li>
+                            </>
+                        ) : <>No  movies here</>}
+                    </div>
+                    </div>
+                    
                 </div>
             </div>
         </>
