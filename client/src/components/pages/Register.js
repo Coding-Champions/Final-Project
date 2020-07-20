@@ -11,6 +11,10 @@ export const Register = () => {
 
   const submit = e => {
     e.preventDefault();
+    if (name === '' || email === '' || password === ''){
+      alert('Please type in valid information');
+      return;
+    }
       Axios({
         method: 'POST',
         data: {

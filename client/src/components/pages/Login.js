@@ -12,6 +12,10 @@ export const Login = () => {
 
     const submit = e =>{
       e.preventDefault();
+      if (email === "" || password === "" ){
+        alert("Please type in valid login information.");
+        return;
+      }
       Axios({
           method: "POST",
           data: {

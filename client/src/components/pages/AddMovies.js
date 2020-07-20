@@ -20,14 +20,18 @@ export const AddMovies = () => {
 
     useEffect(()=>{
       console.log(movieData);
-    }, [movieData]);
+    }, []);
     const submit = e =>{
         e.preventDefault();
         searchMovies(movieName);
+        
     } 
     const submitToDB = e=>{
       if(!localStorage.usertoken){
         history.push('./login');
+      }if (movieData.Error){
+        alert("Please enter a valid movie.");
+        return;
       }else {
         const token = localStorage.usertoken;
         const decoded = jwt_decode(token)
@@ -84,28 +88,5 @@ export const AddMovies = () => {
     </div>
   )
 }
-
-/*
-<div className="text-center">
-      <img alt={props.title} className="img-fluid" src={props.src} style={{ margin: "0 auto" }} />
-      <h3>Director(s): {props.director}</h3>
-      <h3>Genre: {props.genre}</h3>
-      <h3>Released: {props.released}</h3>
-    </div>
-
-    heading={this.state.result.Title || "Search for a Movie to Begin"}
-            >
-              {this.state.result.Title ? (
-                <MovieDetail
-                  title={this.state.result.Title}
-                  src={this.state.result.Poster}
-                  director={this.state.result.Director}
-                  genre={this.state.result.Genre}
-                  released={this.state.result.Released}
-                />
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-*/
 
 export default AddMovies;

@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import Axios from 'axios';
+
+//useState renders every time the Profile component is ran.
 
 export const Profile = () => {
     const history = useHistory();
@@ -10,7 +12,7 @@ export const Profile = () => {
     console.log(showList);
 
     useEffect(()=>{
-        //hmm maybe run a get requse here?  In useEffect if it runs after setstate?
+        
         if(localStorage.usertoken === null){
             history.push('./login');
         }else {
@@ -19,11 +21,9 @@ export const Profile = () => {
             console.log(decoded);
             setName(decoded.name);
             getListOfMovs();
-            //console.log(user);
         }
     }, []); 
-    //does not work if it is a get request?!?!?  Why is it sending to localhost:3000?
-    //try post man, also look up usestate and useeffect and how to use useeffect to fix 
+    
     //use state running twice.
     const getListOfMovs = ()=>{
         console.log("calling getMOvies")
@@ -38,11 +38,15 @@ export const Profile = () => {
           setshowList(res.data.showList);
       })
     }
-    //getListOfMovs();
+    const logoutUser = e=>{
+        e.preventDefault();
+        localStorage.removeItem('usertoken');
+        history.push('./login');
+    }
     return ( 
         <>
         
-        <button className="button" type="submit">Logout</button>
+        <button className="button" type="submit" onClick={logoutUser}>Logout</button>
         <h1 style={{color: "white"}}>Hello {username} !!!</h1>
         
         <Link to="/AddMovies">
@@ -51,13 +55,10 @@ export const Profile = () => {
         <div className="movie-details">
         {showList ? showList.map(movie=>
             <li>{movie.Title}</li>
-        ) : <>No  movies here</>}
+        ) : <li>No movies here</li>}
       </div>
         </>
     )
 }
-{/* <h3>Title: {movieData.Title}</h3> 
-        <h3>Genre: {movieData.Genre}</h3> 
-        <h3>Poster: {movieData.Poster}</h3> 
-        <h3>imdbRating: {movieData.imdbRating}</h3> */}
+
 export default Profile;
