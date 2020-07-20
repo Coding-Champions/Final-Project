@@ -105,6 +105,10 @@ users.post('/getmovies', (req, res)=>{
         res.json(user);
     });
 })
+users.get('/getfriends', (req, res)=>{
+    console.log('hitting the getfriends route');
+    res.send({msg:"hitting the get friends route"});
+})
 
 
 module.exports = users;

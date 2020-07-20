@@ -9,6 +9,7 @@ export const Profile = () => {
     const history = useHistory();
     const [username, setName] = useState('');
     const [showList, setshowList] = useState(null);
+    const [friendsList, setfriendList] = useState(null);
     console.log(showList);
 
     useEffect(()=>{
@@ -21,9 +22,17 @@ export const Profile = () => {
             console.log(decoded);
             setName(decoded.name);
             getListOfMovs();
+            getFriends();
         }
     }, []); 
-    
+    const getFriends = ()=>{
+        Axios({
+            method: "GET",
+            url: '/users/getfriends'
+        }).then(res=>{
+            console.log(res.data);  //the data in the response is the message from the back end.
+        })
+    }
     //use state running twice.
     const getListOfMovs = ()=>{
         console.log("calling getMOvies")

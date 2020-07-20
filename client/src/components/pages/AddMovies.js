@@ -29,7 +29,7 @@ export const AddMovies = () => {
     const submitToDB = e=>{
       if(!localStorage.usertoken){
         history.push('./login');
-      }if (movieData.Error){
+      }if (movieName == '' || movieData.Error){
         alert("Please enter a valid movie.");
         return;
       }else {
