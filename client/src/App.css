@@ -11,10 +11,7 @@ html {
     background-position: center;
     background-attachment: fixed;
 }
-.container{
-    text-align: center;
-    margin-top: 250px;
-}
+
 .navbar{
     background: aqua;
 }
@@ -63,10 +60,42 @@ a:hover{
 }
 
 .card {
+    display: block;
+    align-items: center;
+    width: 75%;
+    padding: 15px;
+    margin-top: 15px;
+    text-align: center;
 
-    background: rgba(198, 199, 198, 0.4);
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 300;
+
+
+    outline: none;
+    background: none;
+
+    background: whitesmoke
+
+    /* background: rgba(198, 199, 198, 0.4); */
+
 }
-/* .card-header-title {
-    background-color: azure;
-    color: #eeeeee;
-} */
+
+.card-header {
+    display: block;
+    padding: 15px;
+    margin-top: 15px;
+    
+}
+
+.card-header-title {
+    display: block;
+    text-align: center;
+    color: #fff;
+}
+
+.form-container, .home-container {
+    display: block;
+    margin-top: 25px;
+}

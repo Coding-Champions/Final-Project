@@ -7,7 +7,7 @@ function Navbar() {
     return (
         <div>
             <div className="navbar-container">
-                <navbar className="navbar is-light" role="navigation" aria-label="main-navigation">
+                <navbar className="navbar is-dark" role="navigation" aria-label="main-navigation">
                     <div className="navbar-brand">
                         <a className="navbar-item">
                         <strong><h1>SceneIt</h1></strong>
