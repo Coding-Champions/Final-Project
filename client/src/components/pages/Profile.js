@@ -52,7 +52,10 @@ export const Profile = () => {
                 </Link>
                 <div className="movie-details">
                     {showList ? showList.map(movie=>
-                        <li>{movie.Title}</li>
+                        <>
+                        <li className="user-movie-title">{movie.Title}</li>
+                        <li><img src={movie.Poster}/></li>
+                        </>
                     ) : <>No  movies here</>}
                 </div>
             </div>

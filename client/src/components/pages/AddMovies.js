@@ -83,8 +83,8 @@ export const AddMovies = () => {
         </div>
         <div className="movie-details">
           {movieData === null ? <h3>Nothing to Display</h3> : <><h3>Title: {movieData.Title}</h3>
-            <h3>Genre: {movieData.Genre}</h3>
-            <h3>Poster: {movieData.Poster}</h3>
+            <img src={movieData.Poster}/>
+            <h3><strong>Genre: {movieData.Genre}</strong></h3>
             <h3>imdbRating: {movieData.imdbRating}</h3></>}
         </div>
       </div>
