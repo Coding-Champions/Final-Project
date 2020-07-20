@@ -8,4 +8,3 @@ export default {
     return axios.get("/movies/" + query);
   }
 };
-

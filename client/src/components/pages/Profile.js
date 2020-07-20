@@ -1,17 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import Axios from 'axios';
 import Navbar from "../Navbar"
+
+//useState renders every time the Profile component is ran.
 
 export const Profile = () => {
     const history = useHistory();
     const [username, setName] = useState('');
     const [showList, setshowList] = useState(null);
-    // console.log(showList);
+    const [friendsList, setfriendList] = useState(null);
+    console.log(showList);
 
     useEffect(()=>{
-        //hmm maybe run a get requse here?  In useEffect if it runs after setstate?
+        
         if(localStorage.usertoken === null){
             history.push('./login');
         }else {
@@ -20,11 +23,17 @@ export const Profile = () => {
             console.log(decoded);
             setName(decoded.name);
             getListOfMovs();
-            //console.log(user);
+            getFriends();
         }
     }, []); 
-    //does not work if it is a get request?!?!?  Why is it sending to localhost:3000?
-    //try post man, also look up usestate and useeffect and how to use useeffect to fix 
+    const getFriends = ()=>{
+        Axios({
+            method: "GET",
+            url: '/users/getfriends'
+        }).then(res=>{
+            console.log(res.data);  //the data in the response is the message from the back end.
+        })
+    }
     //use state running twice.
     const getListOfMovs = ()=>{
         console.log("calling getMOvies")
@@ -39,7 +48,11 @@ export const Profile = () => {
           setshowList(res.data.showList);
       })
     }
-    //getListOfMovs();
+    const logoutUser = e=>{
+        e.preventDefault();
+        localStorage.removeItem('usertoken');
+        history.push('./login');
+    }
     return ( 
         <>
             <div className="profile-container">
