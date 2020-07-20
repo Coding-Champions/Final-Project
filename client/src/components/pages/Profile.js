@@ -11,7 +11,7 @@ export const Profile = () => {
     const [username, setName] = useState('');
     const [showList, setshowList] = useState(null);
     const [friendsList, setfriendList] = useState(null);
-    console.log(showList);
+    console.log(friendsList);
 
     useEffect(()=>{
         
@@ -31,7 +31,7 @@ export const Profile = () => {
             method: "GET",
             url: '/users/getfriends'
         }).then(res=>{
-            console.log(res.data);  //the data in the response is the message from the back end.
+            setfriendList(res.data);  //the data in the response is the message from the back end.
         })
     }
     //use state running twice.
@@ -55,31 +55,27 @@ export const Profile = () => {
     }
     return ( 
         <>
-                    <Navbar/>
-            <div className="columns is-centered">
-                <div className="profile-container">
-                    <div className="box">
-
-                    <h1 style={{color: "white"}}>Hello {username} !!!</h1>
-                    </div>
-                    <Link to="/AddMovies">
-                        <button className="button is-primary">Click Here to Add movies to your collections!</button>
-                    </Link>
-                    <div className="box">
-
-                    
-                    <div className="movie-details">
-                        {showList ? showList.map(movie=>
-                            <>
-                            <li className="user-movie-title">{movie.Title}</li>
-                            <li><img src={movie.Poster}/></li>
-                            </>
-                        ) : <>No  movies here</>}
-                    </div>
-                    </div>
-                    
-                </div>
-            </div>
+        
+        <button className="button" type="submit" onClick={logoutUser}>Logout</button>
+        <h1 style={{color: "white"}}>Hello {username} !!!</h1>
+        
+        <Link to="/AddMovies">
+            <button className="button">Click Here to Add movies to your collections!</button>
+        </Link>
+        <div className="movie-details">
+            <h1>Shows:</h1>
+        {showList ? showList.map(movie=>
+            <li>{movie.Title}</li>
+        ) : <li>No movies here</li>}
+      </div>
+      <div className="movie-list">
+          <h1>Shows:</h1>
+        {friendsList ? friendsList.map(friend=>
+            
+              <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
+            
+        ) : <li>No friends here</li>}
+      </div>
         </>
     )
 }

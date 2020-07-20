@@ -107,7 +107,36 @@ users.post('/getmovies', (req, res)=>{
 })
 users.get('/getfriends', (req, res)=>{
     console.log('hitting the getfriends route');
-    res.send({msg:"hitting the get friends route"});
+    const dbusers = [];
+    User.find({}).then(users=>{
+        users.forEach((element)=>{
+            var userObj = {
+                "id": element._id,
+                "name": element.name,
+            }
+            dbusers.push(userObj);
+        });
+        //console.log(dbusers);
+        res.send(dbusers);
+    }).catch(err=>res.send("Server Error"));
+})
+//OK why doesnt a get request work?!?!?!
+users.post('/getonefriend', (req, res)=>{
+    User.find({
+        _id: req.body.id,
+    }).then(user=>{
+        console.log(user);
+        //console.log(user[0].showList);
+        //console.log(user[0].name);
+        
+        var data = {
+            showList: user[0].showList,
+            name: user[0].name
+        }
+        console.log(data);
+        res.json(data);
+    }).catch(err=>
+        res.send('server side error'))
 })
 
 
