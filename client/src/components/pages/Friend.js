@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import {Link, useParams } from 'react-router-dom';
 import Axios from 'axios';
 
 
@@ -29,6 +29,9 @@ const Friend = () =>{
     //Now should be ok. Since we are not allowing users to add null movie.  So clean database and rerun everything!!
     return (
         <>
+        <Link to="/profile">
+            <button className="button">Back to Profile</button>
+        </Link>
         <div>
          {friendName ? 
           <h1>{friendName}'s Shows</h1> : <li>No show here</li>}
