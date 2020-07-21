@@ -52,7 +52,7 @@ export const AddMovies = () => {
   return (
     <div>
       <Link to='/Profile'>
-        <button className='button'>Back to Profile</button>
+        <button className='button addmovie-button'>Back to Profile</button>
       </Link>
 
       <div className='field'>
@@ -73,7 +73,7 @@ export const AddMovies = () => {
       </div>
       <div className='field'>
         <p className='control'>
-          <button className='button' onClick={submit}>
+          <button className='button searchmovie-button' onClick={submit}>
             Search
           </button>
         </p>

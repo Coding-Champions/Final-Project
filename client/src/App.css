@@ -80,8 +80,11 @@ a:hover{
     margin-bottom: 25px;
 
 }
-.profile-button{
+.profile-button .addmovie-button {
     margin-bottom: 15px;
+}
+.searchmovie-button{
+    margin-top: 20px;
 }
 .profile-username{
     color: #eee;
