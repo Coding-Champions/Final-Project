@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import Axios from 'axios';
+// import Navbar from "../Navbar";
 
 //useState renders every time the Profile component is ran.
 
@@ -64,7 +65,7 @@ export const Profile = () => {
         <div className="movie-details">
             <h1>Shows:</h1>
         {showList ? showList.map(movie=>
-            <li>{movie.Title}</li>
+            <li><img src={movie.Poster}/></li>
         ) : <li>No movies here</li>}
       </div>
       <div className="movie-list">
