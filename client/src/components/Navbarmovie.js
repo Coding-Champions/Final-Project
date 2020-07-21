@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 //have to add functions for hamburger menu click(toggle-open/close)
 
-function Navbar() {
+function Navbarmovie() {
     const history = useHistory();
 
     const logoutUser = e=>{
@@ -32,8 +32,13 @@ function Navbar() {
 
                     <div className="navbar-end">
                         <div className="navbar-item">
-                            <div className="buttons">                                  
+                            <div className="buttons">
+                                
+                                <Link to="/Profile">
+                                    <button className="button">Back to Profile</button> 
+                                </Link>                                   
                                 <button className="button" type="submit" onClick={logoutUser}>Logout</button>
+
                             </div>
                         </div>
                     </div>
@@ -43,4 +48,4 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default Navbarmovie

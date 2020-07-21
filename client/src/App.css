@@ -12,13 +12,9 @@ html {
     background-attachment: fixed;
 }
 
-.navbar{
-    background: aqua;
-}
-.footer{
 
+.footer{
     background: none;
-    
 }
 .button, .button .is-success{
     

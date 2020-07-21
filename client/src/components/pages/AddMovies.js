@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import API from "../../utils/API";
 import Axios from 'axios';
-import Navbar from "../Navbar";
+import Navbarmovie from "../Navbarmovie";
 // import Addedmodal from "../Addedmodal"
 
 
@@ -58,12 +58,8 @@ export const AddMovies = () => {
           
         <div className="addmovies-container">
           <div className="movies-button-container">
-            <Navbar />
-
-            <Link to="/Profile">
-              <button className="button is-primary">Back to Profile</button>
-            </Link>
-            <button className="button is-primary" type="submit" onClick={submitToDB}>Add Movie</button>
+            <Navbarmovie />
+            <button className="button" type="submit" onClick={submitToDB}>Add Movie</button>
           </div>
           <div className="searchbar-container">
 
@@ -86,7 +82,7 @@ export const AddMovies = () => {
           </div>
           <div className='field'>
             <p className='control'>
-              <button className='button is-primary' onClick={submit}>
+              <button className='button' onClick={submit}>
                 Search
               </button>
             </p>

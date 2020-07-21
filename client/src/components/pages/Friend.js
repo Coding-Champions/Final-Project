@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import Axios from 'axios';
+import Navbarmovie from "../Navbarmovie";
 
 
 const Friend = () =>{
@@ -29,6 +30,7 @@ const Friend = () =>{
     //Now should be ok. Since we are not allowing users to add null movie.  So clean database and rerun everything!!
     return (
         <>
+        <Navbarmovie />
         <div>
          {friendName ? 
           <h1>{friendName}'s Shows</h1> : <li>No show here</li>}

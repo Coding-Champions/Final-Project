@@ -97,7 +97,7 @@ export const Register = () => {
                 </div>
                 <div className='field'>
                   <p className='control'>
-                    <button className='button is-primary'onClick={submit}>Register</button>
+                    <button className='button'onClick={submit}>Register</button>
                   </p>
                 </div>
               </div>

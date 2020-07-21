@@ -86,7 +86,7 @@ export const Login = () => {
                 </div>
                 <div className='field'>
                   <p className='control'>
-                    <button className='button is-primary' onClick={submit}>
+                    <button className='button' onClick={submit}>
                       Login
                     </button>
                   </p>
