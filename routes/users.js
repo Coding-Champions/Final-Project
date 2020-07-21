@@ -56,10 +56,10 @@ users.post('/login', (req, res)=>{
                 })//create a token with the payload info
                 res.send(token);  //send it to the browser.
             }else {
-                res.json({error: "Password is not valid."})
+                res.send("Password is not valid.")
             }
         }else {
-            res.json({error: "User does not exist"});
+            res.send("User does not exist");
         }
     }).catch(err =>{
         res.send('error' + err);
@@ -110,6 +110,7 @@ users.get('/getfriends', (req, res)=>{
     const dbusers = [];
     User.find({}).then(users=>{
         users.forEach((element)=>{
+            
             var userObj = {
                 "id": element._id,
                 "name": element.name,
@@ -125,10 +126,7 @@ users.post('/getonefriend', (req, res)=>{
     User.find({
         _id: req.body.id,
     }).then(user=>{
-        console.log(user);
-        //console.log(user[0].showList);
-        //console.log(user[0].name);
-        
+        console.log(user);   
         var data = {
             showList: user[0].showList,
             name: user[0].name

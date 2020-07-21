@@ -25,10 +25,18 @@ export const Login = () => {
           url: "/users/login",
         }).then(res=>{
               //Note that this webtoken needs to be set in the browser before going over to the profile page.
-              if (res){
-                  localStorage.setItem('usertoken', res.data);
-                  history.push('./profile');
-              }
+            if(res.data === 'User does not exist'){
+              alert("User does not exist.");
+              return;
+            }
+            if(res.data === 'Password is not valid'){
+              alert("Password is not valid.");
+              return;
+            }
+            if (res){
+              localStorage.setItem('usertoken', res.data);
+              history.push('./profile');
+            }
         })
       .catch(err=>{
           console.log(err);
