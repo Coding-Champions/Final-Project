@@ -68,7 +68,7 @@ export const Profile = () => {
         ) : <li>No movies here</li>}
       </div>
       <div className="movie-list">
-          <h1>Shows:</h1>
+          <h1>Friends:</h1>
         {friendsList ? friendsList.map(friend=>
             
               <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
