@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect }from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './components/pages/Home';
 import Login from './components/pages/Login';
@@ -7,8 +7,16 @@ import Profile from './components/pages/Profile';
 import AddMovies from './components/pages/AddMovies';
 import Friend from './components/pages/Friend';
 import './App.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  });
+
   return (
     <div>
       <Router>

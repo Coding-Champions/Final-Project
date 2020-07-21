@@ -55,27 +55,25 @@ export const Profile = () => {
     }
     return ( 
         <>
-        
-        <button className="button" type="submit" onClick={logoutUser}>Logout</button>
-        <h1 style={{color: "white"}}>Hello {username} !!!</h1>
-        
-        <Link to="/AddMovies">
-            <button className="button">Click Here to Add movies to your collections!</button>
-        </Link>
-        <div className="movie-details">
-            <h1>Shows:</h1>
-        {showList ? showList.map(movie=>
-            <li><img src={movie.Poster}/></li>
-        ) : <li>No movies here</li>}
-      </div>
-      <div className="movie-list">
-          <h1>Friends:</h1>
-        {friendsList ? friendsList.map(friend=>
+            <button className="button" type="submit" onClick={logoutUser}>Logout</button>
+            <h1 style={{color: "white"}}>Hello {username} !!!</h1>
             
-              <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
-            
-        ) : <li>No friends here</li>}
-      </div>
+            <Link to="/AddMovies">
+                <button className="button">Click Here to Add movies to your collections!</button>
+            </Link>
+            <div className="movie-details">
+                <h1>Shows:</h1>
+                {showList ? showList.map(movie=>
+                <li><img src={movie.Poster}/></li>
+                ) : <li>No movies here</li>}
+            </div>
+            <div className="movie-list">
+                <h1>Friends:</h1>
+                {friendsList ? friendsList.map(friend=>
+                
+                <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
+                ) : <li>No friends here</li>}
+            </div>
         </>
     )
 }
