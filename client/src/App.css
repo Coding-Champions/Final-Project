@@ -80,3 +80,32 @@ a:hover{
     margin-bottom: 25px;
 
 }
+.profile-button{
+    margin-bottom: 15px;
+}
+.profile-username{
+    color: #eee;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 800;
+    font-size: 40px;
+}
+.addmovie-button{
+    
+    margin-top: 15px;
+    margin-bottom: 35px;
+}
+.usershows{
+    color: #eee;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 45px;
+    text-decoration: underline;
+}
+.begin-search-text{
+    color: #eee;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 45px;
+    text-decoration: underline;
+}
