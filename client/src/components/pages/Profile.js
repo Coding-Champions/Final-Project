@@ -63,15 +63,11 @@ export const Profile = () => {
             </Link>
             <div className="movie-details">
                 <h1 className="usershows">Your List:</h1>
-                {showList ? showList.map(movie=>
-                <li><img src={movie.Poster}/></li>
-                ) : <li>No movies here</li>}
+                {showList ? showList.map(movie=> <li><img src={movie.Poster}/></li>) : <li>No movies here</li>}
             </div>
             <div className="movie-list">
                 <h1>Friends:</h1>
-                {friendsList ? friendsList.map(friend=>
-                
-                <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
+                {friendsList ? friendsList.map(friend=> <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
                 ) : <li>No friends here</li>}
             </div>
         </>
