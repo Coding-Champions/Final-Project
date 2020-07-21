@@ -60,7 +60,7 @@ export const AddMovies = () => {
           <input
             className='input'
             type='text'
-            placeholder='Movie Name'
+            placeholder='Movie/Show Name'
             onChange={e => setMovieName(e.target.value)}
           />
           <span className='icon is-small is-left'>
