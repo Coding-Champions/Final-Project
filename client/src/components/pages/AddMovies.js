@@ -73,7 +73,7 @@ export const AddMovies = () => {
       </div>
       <div className='field'>
         <p className='control'>
-          <button className='button is-success' onClick={submit}>
+          <button className='button' onClick={submit}>
             Search
           </button>
         </p>

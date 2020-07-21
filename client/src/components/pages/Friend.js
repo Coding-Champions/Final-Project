@@ -44,20 +44,5 @@ const Friend = () =>{
         </>
     )
  }
-/*
-<div>
-            {friendShow ? <h1>{friendShow[1].Title}</h1> : <h1>Awaiting data</h1>}
-        </div>
 
-
-
-<div className="movie-list">
-          <h1>Shows:</h1>
-        {thisfriend.showList ? friendsList.map(friend=>
-            
-              <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
-            
-        ) : <li>No friends here</li>}
-      </div>
-*/
  export default Friend;
