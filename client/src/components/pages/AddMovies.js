@@ -80,7 +80,7 @@ export const AddMovies = () => {
       </div>
       <div className='movie-details'>
         {movieData === null ? (
-          <h3>No movie to display</h3>
+          <h3 className="begin-search-text">Please search a movie or show</h3>
         ) : (
           <>
           <div className="card">
@@ -104,7 +104,7 @@ export const AddMovies = () => {
             
 
             <button className='button' type='submit' onClick={submitToDB}>
-              Add Movie / Show
+              Add to your list
             </button>
             </div>
             </div>

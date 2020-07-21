@@ -55,14 +55,14 @@ export const Profile = () => {
     }
     return ( 
         <>
-            <button className="button" type="submit" onClick={logoutUser}>Logout</button>
-            <h1 style={{color: "white"}}>Hello {username} !!!</h1>
+            <button className="button profile-button" type="submit" onClick={logoutUser}>Logout</button>
+            <h1 className="profile-username" style={{color: "white"}}>Hello {username} !!!</h1>
             
             <Link to="/AddMovies">
-                <button className="button">Click Here to Add movies to your collections!</button>
+                <button className="button addmovie-button">Click Here to Add movies to your collections!</button>
             </Link>
             <div className="movie-details">
-                <h1>Shows:</h1>
+                <h1 className="usershows">Your List:</h1>
                 {showList ? showList.map(movie=>
                 <li><img src={movie.Poster}/></li>
                 ) : <li>No movies here</li>}
