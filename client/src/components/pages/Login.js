@@ -43,8 +43,8 @@ export const Login = () => {
 
           <div className="card">
             <header className="card-header">
-              <p className="card-header-title">
-              <h3><strong>Please Login</strong></h3>
+              <p>
+              <h3 className="card-header-title"><strong>Please Login</strong></h3>
               </p>
             </header>
               <div className="form-container">

@@ -1,9 +1,20 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
+
 
 
 //have to add functions for hamburger menu click(toggle-open/close)
 
 function Navbar() {
+    const history = useHistory();
+
+    const logoutUser = e=>{
+        e.preventDefault();
+        localStorage.removeItem('usertoken');
+        history.push('./login');
+    }
+
+
     return (
         <div>
             <div className="navbar-container">
@@ -19,40 +30,12 @@ function Navbar() {
                         </a>
                     </div>
 
-                    <div id="navbarBasicExample" className="navbar-menu">
-                        <div className="navbar-start">
-                            <a href="https://www.google.com" className="navbar-item">
-                                Home
-                            </a>
-                            <a href="https://www.google.com" className="navbar-item">
-                                My List
-                            </a>
+                    <div className="navbar-end">
+                        <div className="navbar-item">
+                            <div className="buttons">
+                                
+                                    <button className="button is-primary" type="submit" onClick={logoutUser}>Logout</button>
 
-                            <div className="navbar-item has-dropdown is-hoverable">
-                                <a href="https://www.google.com" className="navbar-link">
-                                    More
-                                </a>
-                                <div className="navbar-dropdown">
-                                    <a href="https://www.google.com" className="navbar-item">
-                                        Profile
-                                    </a>
-                                    <a href="https://www.google.com" className="navbar-item">
-                                        Settings
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="navbar-end">
-                                <div className="navbar-item">
-                                    <div className="buttons">
-                                        <a href="https://www.google.com" className="button is-primary">
-                                            Login
-                                        </a>
-                                        <a href="https://www.google.com" className="button is-light">
-                                            Logout
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

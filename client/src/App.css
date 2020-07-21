@@ -76,9 +76,9 @@ a:hover{
     outline: none;
     background: none;
 
-    background: whitesmoke
+    background: whitesmoke;
 
-    /* background: rgba(198, 199, 198, 0.4); */
+    background: rgba(198, 199, 198, 0.4);
 
 }
 
@@ -92,7 +92,7 @@ a:hover{
 .card-header-title {
     display: block;
     text-align: center;
-    color: #fff;
+    color: pink;
 }
 
 .form-container, .home-container {

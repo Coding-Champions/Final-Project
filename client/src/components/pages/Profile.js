@@ -48,34 +48,35 @@ export const Profile = () => {
           setshowList(res.data.showList);
       })
     }
-    const logoutUser = e=>{
-        e.preventDefault();
-        localStorage.removeItem('usertoken');
-        history.push('./login');
-    }
+    // const logoutUser = e=>{
+    //     e.preventDefault();
+    //     localStorage.removeItem('usertoken');
+    //     history.push('./login');
+    // }
     return ( 
         <>
-        
-        <button className="button" type="submit" onClick={logoutUser}>Logout</button>
-        <h1 style={{color: "white"}}>Hello {username} !!!</h1>
-        
-        <Link to="/AddMovies">
-            <button className="button">Click Here to Add movies to your collections!</button>
-        </Link>
-        <div className="movie-details">
-            <h1>Shows:</h1>
-        {showList ? showList.map(movie=>
-            <li>{movie.Title}</li>
-        ) : <li>No movies here</li>}
-      </div>
-      <div className="movie-list">
-          <h1>Shows:</h1>
-        {friendsList ? friendsList.map(friend=>
+            <Navbar/>
             
-              <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
+            {/* <button className="button" type="submit" onClick={logoutUser}>Logout</button> */}
+            <h1 style={{color: "white"}}>Hello {username} !!!</h1>
             
-        ) : <li>No friends here</li>}
-      </div>
+            <Link to="/AddMovies">
+                <button className="button is-primary">Click Here to Add movies to your collections!</button>
+            </Link>
+            <div className="movie-details">
+                <h1>Shows:</h1>
+            {showList ? showList.map(movie=>
+                <li>{movie.Title}</li>
+            ) : <li>No movies here</li>}
+            </div>
+            <div className="movie-list">
+                <h1>Shows:</h1>
+                {friendsList ? friendsList.map(friend=>
+                    
+                    <a href= {"friend/" + friend.id} > <button className="button is-primary">{friend.name}</button></a> 
+                    
+                ) : <li>No friends here</li>}
+            </div>
         </>
     )
 }
