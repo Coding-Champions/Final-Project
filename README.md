@@ -1,5 +1,5 @@
 
-# SceneIt ![Image of Badge](https://img.shields.io/badge/Home%20Body-v1.0.0-red)
+# SceneIt ![Image of Badge](https://img.shields.io/badge/SceneIt-v1.0.0-red)
 
 ## Description
 
