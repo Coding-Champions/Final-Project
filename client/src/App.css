@@ -112,3 +112,27 @@ a:hover{
     margin-bottom: 45px;
     text-decoration: underline;
 }
+
+.watchlist-img{
+    float: left;
+    max-width: 300px;
+    max-height: 445px;
+    /* height: auto; */
+    margin: 10px;
+    /* width: auto; */
+    
+    /* display: inline-block */
+    
+}
+
+.column2{
+    
+        /* flex: 33.33%;
+        padding: 100px; */
+
+}
+
+li{
+    list-style-type: none;
+}
+

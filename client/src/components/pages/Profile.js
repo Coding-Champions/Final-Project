@@ -32,6 +32,7 @@ export const Profile = () => {
             url: '/users/getfriends'
         }).then(res=>{
             setfriendList(res.data);  //the data in the response is the message from the back end.
+            console.log(res.data)
         })
     }
     //use state running twice.
@@ -45,7 +46,9 @@ export const Profile = () => {
         data: {"email":decoded.email},
         url: '/users/getmovies'
       }).then(res=>{
-          setshowList(res.data.showList);
+          
+        setshowList(res.data.showList);
+        console.log(res.data.showList);
       })
     }
     const logoutUser = e=>{
@@ -61,15 +64,26 @@ export const Profile = () => {
             <Link to="/AddMovies">
                 <button className="button addmovie-button">Click Here to Add movies to your collections!</button>
             </Link>
-            <div className="movie-details">
+            
+            
+
+            <div class="columns">
+                <div class="column is-three-quarters">
+                <div className="movie-details">
                 <h1 className="usershows">Your List:</h1>
-                {showList ? showList.map(movie=> <li><img src={movie.Poster}/></li>) : <li>No movies here</li>}
+                {showList ? showList.map(movie=> <div className='column2'><img className='watchlist-img' src={movie.Poster}/></div>) : <li>No movies here</li>}
             </div>
-            <div className="movie-list">
+                </div>
+                <div class="column">
+                <div className="movie-list">
                 <h1>Friends:</h1>
                 {friendsList ? friendsList.map(friend=> <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
                 ) : <li>No friends here</li>}
-            </div>
+                    </div>
+                    </div>
+                </div>
+
+
         </>
     )
 }
