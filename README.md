@@ -32,7 +32,7 @@ If you'd like to install locally please do the following:
 ## Usage
 
 Please see SceneIt in action  
-![Homebody gif showing how it works](./public/assets/images/HomeBody.gif)
+![SceneIt gif showing how it works]()
 
 ## Technologies
 
