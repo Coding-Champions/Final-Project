@@ -69,10 +69,11 @@ export const Profile = () => {
           <h1 className="friend-title">Friends</h1>
           {friendsList ? (
             friendsList.map(friend => (
-              <a href={'friend/' + friend.id}>
-                {' '}
-                <button className='button friends-button'>{friend.name}</button>
-              </a>
+                <>
+                <Link to={'/friend/' + friend.id}>
+                <button className='button addmovie-button'>Add More</button>
+                </Link>
+              </>
             ))
           ) : (
             <li>No friends here</li>
