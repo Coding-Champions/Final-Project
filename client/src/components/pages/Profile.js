@@ -11,7 +11,7 @@ export const Profile = () => {
     const [username, setName] = useState('');
     const [showList, setshowList] = useState(null);
     const [friendsList, setfriendList] = useState(null);
-    console.log(friendsList);
+    console.log(showList);
 
     useEffect(()=>{
         
@@ -56,6 +56,18 @@ export const Profile = () => {
         localStorage.removeItem('usertoken');
         history.push('./login');
     }
+
+    const movieList = ()=>{
+        //return <h1> Some Stuff here</h1>
+        
+        if (showList === null  || showList.length === 0){
+            return (<h1 style={{color:'blue'}}>Please add movies to your movie list</h1>)
+        }else {
+            return (
+                showList.map(movie =><img className='watchlist-img' src={movie.Poster}/>)
+            )
+        }
+    }
     return ( 
         <>
             <button className="button profile-button" type="submit" onClick={logoutUser}>Logout</button>
@@ -64,24 +76,18 @@ export const Profile = () => {
             <Link to="/AddMovies">
                 <button className="button addmovie-button">Add movies or shows to your collections</button>
             </Link>
-            
-            
-
-            
-                <div>
-                    <div className="movie-details">
-                        <div className="movie-list">
-                        <h1>Friends:</h1>
-                        {friendsList ? friendsList.map(friend=> <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
-                        ) : <li>No friends here</li>}
-                    </div>
-                <h1 className="usershows">Your List:</h1>
-                
+            <div>
+                <div className="movie-details">
+                    <div className="movie-list">
+                    <h1>Friends:</h1>
+                    {friendsList ? friendsList.map(friend=> <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
+                    ) : <li>No friends here</li>}
                 </div>
-                </div>
-                {showList ? showList.map(movie=> <img className='watchlist-img' src={movie.Poster}/>) : <li>No movies here</li>}       
+            </div>
+            </div>
+            {movieList()}
+                      
         </>
     )
 }
-
 export default Profile;
