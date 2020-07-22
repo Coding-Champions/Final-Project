@@ -71,7 +71,7 @@ export const Profile = () => {
             friendsList.map(friend => (
               <a href={'friend/' + friend.id}>
                 {' '}
-                <button className='button friends-button'>{friend.name}</button>
+                <button className='button friends-button' style={({ color: 'white' }, { textTransform: 'capitalize' })}>{friend.name}</button>
               </a>
             ))
           ) : (
@@ -79,7 +79,7 @@ export const Profile = () => {
           )}
         </div>
         <div className='movie-details'>
-          <h1 className='usershows'>Your Saved Content</h1>
+          <h1 className='usershows'>Your Favorite Movies/Shows</h1>
           <Link to='/AddMovies'>
             <button className='button addmovie-button'>Add More</button>
           </Link>
