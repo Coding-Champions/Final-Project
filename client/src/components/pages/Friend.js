@@ -51,13 +51,19 @@ const Friend = () =>{
     //Now should be ok. Since we are not allowing users to add null movie.  So clean database and rerun everything!!
     return (
         <>
+        <div className="container">
+            
             <Link to="/profile">
                 <button className="button">Back to Profile</button>
             </Link>
-            <div>
-                {friendName ? <h1>{friendName}'s Shows</h1> : <li>No show here</li>}
+            
+            <div className="friend-title" style={({ color: 'white' }, { textTransform: 'capitalize' })}>
+                {friendName ? <div>{friendName}'s Shows</div> : <li>No show here</li>}
             </div>
+            <div className='movie-details'>
             {friendShow ? friendShow.map(friend=> <img className='watchlist-img' src={friend.Poster}/>) : <li>Friend currently does not have any shows</li>}
+            </div>
+            </div>
         </>
     )
  }

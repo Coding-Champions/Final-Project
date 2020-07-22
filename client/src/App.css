@@ -26,6 +26,7 @@ html {
     font-weight: bold;
     margin: 5px;
     padding: 15px;
+    margin-bottom: 20px;
   
      
   }
@@ -129,6 +130,7 @@ html {
   .friend-title{
     color: white;
     font-size: 30px;
+    margin-bottom: 10px;
   }
   .begin-search-text{
     color: #eee;
@@ -140,12 +142,22 @@ html {
   
   .watchlist-img{
     text-align: center;
-    max-width: 269px;
+    max-width: 243px;
     max-height: 360px;
     margin: 10px;
-  
   }
-  
+  .friends-button{
+      background-color: rgba(80, 24, 2, 0.589);
+      color: white;
+      padding: 10px;
+      outline: none;
+      border: none;
+      opacity: 0.8;
+      transition: 0.3s;
+  }
+  .friends-button:hover{
+      opacity: 1;
+  }
   .movie-list{
     float: right;
   }
