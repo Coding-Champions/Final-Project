@@ -6,10 +6,10 @@ html {
     background-attachment: fixed;
 }
 .container{
-    text-align: center;
+    /* text-align: center; */
     margin-top: 50px;
-   
-}
+    font-family: 'Prata', serif;
+}    
 .navbar{
     background: none;
     
@@ -25,11 +25,18 @@ html {
     color: white;
     font-weight: bold;
     margin: 5px;
+    padding: 15px;
+
      
 }
 .button:hover{
     color: white;
     background-color: rgb(3, 155, 23);
+}
+.logoutBtn{
+    color: white;
+    background-color: rgb(3, 155, 23);
+    float: right;
 }
 .label{
     color: white;
@@ -49,8 +56,10 @@ html {
 }
 p{
     color: white;
+    text-align: center;
     
 }
+
 a{
 font-weight: bold;
 }
@@ -63,7 +72,14 @@ a:hover{
 }
 .card-content{
     background-color: rgb(19, 19, 19);
+    text-align: center;
    
+}
+.card-image{
+    text-align: center;
+}
+.field{
+    text-align: center;
 }
 
 .title, .subtitle{
@@ -102,8 +118,16 @@ a:hover{
     color: #eee;
     font-size: 40px;
     font-weight: 500;
-    margin-bottom: 45px;
-    text-decoration: underline;
+    /* margin-top: 45px; */
+    
+}
+.friend-list{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.friend-title{
+    color: white;
+    font-size: 30px;
 }
 .begin-search-text{
     color: #eee;
@@ -114,24 +138,19 @@ a:hover{
 }
 
 .watchlist-img{
-    /* float: left; */
+    text-align: center;
     max-width: 269px;
     max-height: 360px;
-    /* height: auto; */
     margin: 10px;
-    /* width: auto; */
-   
-    /* display: flex */
-    
-}
-
-.column2{
-    
-        /* flex: 33.33%;
-        padding: 100px; */
 
 }
 
+.movie-list{
+    float: right;
+}
+.movie-details{
+    text-align: center;
+}
 li{
     list-style-type: none;
 }

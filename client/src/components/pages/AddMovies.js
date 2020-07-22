@@ -50,7 +50,7 @@ export const AddMovies = () => {
     }
   }
   return (
-    <div>
+    <div className="container">
       <Link to='/Profile'>
         <button className='button addmovie-button'>Back to Profile</button>
       </Link>
@@ -63,12 +63,6 @@ export const AddMovies = () => {
             placeholder='Movie/Show Name'
             onChange={e => setMovieName(e.target.value)}
           />
-          <span className='icon is-small is-left'>
-            <i className='fas fa-envelope' />
-          </span>
-          <span className='icon is-small is-right'>
-            <i className='fas fa-check' />
-          </span>
         </p>
       </div>
       <div className='field'>

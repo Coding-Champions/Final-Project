@@ -10,7 +10,7 @@ const Friend = () =>{
     const [friendName, setfriendName] = useState("");
     const [friendShow, setfriendShow] = useState(null)
     console.log(friendName);
-    console.log(friendShow);
+    console.log(showList);
     useEffect(()=>{
         getFriendInfo();
     }, []);
