@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useParams } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 import Axios from 'axios';
 
 
 const Friend = () =>{
     const { id } = useParams();
+    const [showList, setshowList] = useState(null);
     const [friendName, setfriendName] = useState("");
     const [friendShow, setfriendShow] = useState(null)
     console.log(friendName);
@@ -26,6 +28,26 @@ const Friend = () =>{
             setfriendShow(res.data.showList);
         })
     }
+
+
+    
+    const getListOfMovs = ()=>{
+        console.log("calling getMOvies")
+        const token = localStorage.usertoken;
+        const decoded = jwt_decode(token);
+        console.log(decoded); 
+       Axios({
+        method: 'POST',
+        data: {"email":decoded.email},
+        url: '/users/getmovies'
+      }).then(res=>{
+          
+        setshowList(res.data.showList);
+        console.log(res.data.showList);
+      })
+    }
+
+
     //Now should be ok. Since we are not allowing users to add null movie.  So clean database and rerun everything!!
     return (
         <>
@@ -35,7 +57,7 @@ const Friend = () =>{
             <div>
                 {friendName ? <h1>{friendName}'s Shows</h1> : <li>No show here</li>}
             </div>
-            {friendShow ? friendShow.map(friend=> <h1>{friend.Title}</h1>) : <li>Friend currently does not have any shows</li>}
+            {friendShow ? friendShow.map(friend=> <img className='watchlist-img' src={friend.Poster}/>) : <li>Friend currently does not have any shows</li>}
         </>
     )
  }

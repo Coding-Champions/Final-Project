@@ -80,7 +80,7 @@ export const AddMovies = () => {
       </div>
       <div className='movie-details'>
         {movieData === null ? (
-          <h3 className="begin-search-text">Please search a movie or show</h3>
+          <h3 className="begin-search-text"></h3>
         ) : (
           <>
           <div className="card">

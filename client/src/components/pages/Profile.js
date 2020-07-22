@@ -62,28 +62,24 @@ export const Profile = () => {
             <h1 className="profile-username" style={{color: "white"}}>Hello {username} !!!</h1>
             
             <Link to="/AddMovies">
-                <button className="button addmovie-button">Click Here to Add movies to your collections!</button>
+                <button className="button addmovie-button">Add movies or shows to your collections</button>
             </Link>
             
             
 
-            <div class="columns">
-                <div class="column is-three-quarters">
-                <div className="movie-details">
+            
+                <div>
+                    <div className="movie-details">
+                        <div className="movie-list">
+                        <h1>Friends:</h1>
+                        {friendsList ? friendsList.map(friend=> <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
+                        ) : <li>No friends here</li>}
+                    </div>
                 <h1 className="usershows">Your List:</h1>
-                {showList ? showList.map(movie=> <div className='column2'><img className='watchlist-img' src={movie.Poster}/></div>) : <li>No movies here</li>}
-            </div>
+                
                 </div>
-                <div class="column">
-                <div className="movie-list">
-                <h1>Friends:</h1>
-                {friendsList ? friendsList.map(friend=> <a href= {"friend/" + friend.id} > <button className="button">{friend.name}</button></a> 
-                ) : <li>No friends here</li>}
-                    </div>
-                    </div>
                 </div>
-
-
+                {showList ? showList.map(movie=> <img className='watchlist-img' src={movie.Poster}/>) : <li>No movies here</li>}       
         </>
     )
 }

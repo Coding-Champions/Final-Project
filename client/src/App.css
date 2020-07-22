@@ -114,14 +114,14 @@ a:hover{
 }
 
 .watchlist-img{
-    float: left;
-    max-width: 300px;
-    max-height: 445px;
+    /* float: left; */
+    max-width: 269px;
+    max-height: 360px;
     /* height: auto; */
     margin: 10px;
     /* width: auto; */
-    
-    /* display: inline-block */
+   
+    /* display: flex */
     
 }
 
