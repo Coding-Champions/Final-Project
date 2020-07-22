@@ -26,7 +26,7 @@ function App() {
           <Route exact path = '/register' component={Register} />
           <Route exact path = '/profile' component={Profile} />
           <Route exact path = '/addmovies' component={AddMovies} />
-          <Route exact path = '/friend/:id' component={Friend} />
+          <Route path = '/friend/:id' component={Friend} />
         </Switch>
       </Router>
     </div>
