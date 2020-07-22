@@ -71,7 +71,7 @@ export const Profile = () => {
             friendsList.map(friend => (
                 <>
                 <Link to={'/friend/' + friend.id}>
-                <button className='button friends-button'>{friend.name}</button>
+                <button className='button friends-button'style={({ color: 'white' }, { textTransform: 'capitalize' })}>{friend.name}</button>
                 </Link>
               </>
             ))
